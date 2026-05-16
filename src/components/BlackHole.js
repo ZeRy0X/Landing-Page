@@ -10,8 +10,8 @@ export default function BlackHole() {
     let currentX = 0, currentY = 0;
 
     const onMouseMove = (e) => {
-      targetX = (e.clientX / window.innerWidth  - 0.5) * 20;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 20;
+      targetX = (e.clientX / window.innerWidth  - 0.5) * 40;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 40;
     };
 
     const tick = () => {
@@ -36,13 +36,17 @@ export default function BlackHole() {
   return (
     <div
       ref={ref}
-      className="bh-pulse absolute pointer-events-none select-none"
+      className="fixed pointer-events-none select-none"
       style={{
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%) rotate(-22deg)',
-        willChange: 'transform, opacity',
+        willChange: 'transform',
       }}
+    >
+    <div
+      className="bh-pulse"
+      style={{ willChange: 'opacity' }}
     >
       <svg
         width="640"
@@ -200,6 +204,7 @@ export default function BlackHole() {
         <circle cx="250" cy="250" r="97" fill="none"
           stroke="white" strokeWidth="2.5" strokeOpacity="0.35" />
       </svg>
+    </div>
     </div>
   );
 }

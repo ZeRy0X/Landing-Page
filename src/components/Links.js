@@ -4,28 +4,24 @@ const links = [
     description: "@ZeRy0X",
     href: "https://github.com/ZeRy0X",
     Icon: GitHubIcon,
-    newTab: true,
   },
   {
     label: "Email",
     description: "alex.fie07@gmail.com",
     href: "mailto:alex.fie07@gmail.com",
     Icon: EmailIcon,
-    newTab: false,
   },
   {
     label: "Instagram",
     description: "@alessandro.fies",
     href: "https://www.instagram.com/",
     Icon: InstagramIcon,
-    newTab: true,
   },
   {
     label: "Discord",
     description: "pxyz",
     href: "https://discord.com/users/467374915939467275",
     Icon: DiscordIcon,
-    newTab: true,
   },
 ];
 
@@ -34,11 +30,10 @@ export default function Links() {
     <section className="space-y-6">
       <h2 className="text-xl font-semibold text-white">Links</h2>
       <div className="grid gap-3 sm:grid-cols-2">
-        {links.map(({ label, description, href, Icon, newTab }) => (
+        {links.map(({ label, description, href, Icon }) => (
           <a
             key={label}
             href={href}
-            {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="group flex items-center gap-4 bg-neutral-900 border border-neutral-800 rounded-2xl px-5 py-4 hover:border-neutral-600 hover:bg-neutral-800/50 transition-all"
           >
             <span className="text-neutral-400 group-hover:text-sky-400 transition-colors shrink-0">

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+
 :root {
   --background: #080808;
   --foreground: #fafafa;

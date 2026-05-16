@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DiscordPresence from "./DiscordPresence";
 
 export default function Hero() {
   return (
@@ -16,8 +17,7 @@ export default function Hero() {
             />
           </div>
         </div>
-        {/* Online indicator */}
-        <span className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-400 rounded-full border-2 border-[#080808]" />
+
       </div>
 
       {/* Name & Role */}
@@ -30,6 +30,15 @@ export default function Hero() {
       <p className="text-neutral-500 text-sm leading-relaxed">
         I build modern web applications with a focus on performance, clean code,
         and great user experiences.
+      </p>
+
+      {/* Divider */}
+      <div className="w-full border-t border-neutral-800" />
+
+      {/* Bio */}
+      <p className="text-neutral-500 text-sm leading-relaxed">
+        I'm currently studying Computer Science and always
+        lookin for newers technologies to learn and projects to work on.
       </p>
 
       {/* Divider */}
@@ -50,6 +59,9 @@ export default function Hero() {
           <p className="text-neutral-600 text-xs">Coffee</p>
         </div>
       </div>
+
+      {/* Discord presence */}
+      <DiscordPresence />
 
       {/* Copyright */}
       <p className="text-neutral-700 text-xs">

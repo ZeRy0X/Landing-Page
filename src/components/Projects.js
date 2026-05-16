@@ -59,8 +59,6 @@ export default function Projects() {
               {project.github && (
                 <a
                   href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-sm text-neutral-500 hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <GitHubMiniIcon />
@@ -75,8 +73,6 @@ export default function Projects() {
               {project.live && (
                 <a
                   href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-sm text-neutral-500 hover:text-white transition-colors flex items-center gap-1.5 ml-auto"
                 >
                   Live
