@@ -5,7 +5,7 @@ import BlackHole from "@/components/BlackHole";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#080808] text-white relative overflow-hidden">
+    <main className="min-h-screen bg-[#080808] text-white relative overflow-hidden flex flex-col justify-center">
       <BlackHole />
 
       <div className="relative max-w-6xl mx-auto px-4 py-10 sm:px-8 sm:py-16">
