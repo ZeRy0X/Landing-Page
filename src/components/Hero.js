@@ -37,8 +37,8 @@ export default function Hero() {
 
       {/* Bio */}
       <p className="text-neutral-500 text-sm leading-relaxed">
-        I'm currently studying Computer Science and always
-        lookin for newers technologies to learn and projects to work on.
+        I'm currently studying Computer Science with a particular
+        interest in cybersecurity and software development.
       </p>
 
       {/* Divider */}
@@ -54,8 +54,10 @@ export default function Hero() {
           <p className="text-white font-semibold text-lg">5+</p>
           <p className="text-neutral-600 text-xs">Years exp.</p>
         </div>
-        <div>
-          <p className="text-white font-semibold text-lg">∞</p>
+        <div className="flex flex-col items-center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-white">
+            <path d="M10 9.41721C9.16169 8.57524 8.20668 8 7 8C4.79086 8 3 9.79086 3 12C3 14.2091 4.79086 16 7 16C11.5 16 12.5 8 17 8C19.2091 8 21 9.79086 21 12C21 14.2091 19.2091 16 17 16C15.7933 16 14.8383 15.4248 14 14.5828" />
+          </svg>
           <p className="text-neutral-600 text-xs">Coffee</p>
         </div>
       </div>

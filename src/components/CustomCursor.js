@@ -10,9 +10,18 @@ export default function CustomCursor() {
     const cursor = cursorRef.current;
 
     const half = cursor.offsetWidth / 2;
+    let isHovering = false;
+
     const onMove = (e) => {
-      cursor.style.transform = `translate(${e.clientX - half}px, ${e.clientY - half}px)`;
+      cursor.style.transform = `translate3d(${e.clientX - half}px, ${e.clientY - half}px, 0)`;
       cursor.style.opacity = '1';
+
+      const nowHovering = !!e.target.closest('a, button, [role="button"], input, select, textarea, label, [tabindex]');
+      if (nowHovering !== isHovering) {
+        isHovering = nowHovering;
+        cursor.style.backgroundColor = isHovering ? 'rgba(180, 180, 180, 0.45)' : '';
+        cursor.style.borderColor    = isHovering ? 'rgba(210, 210, 210, 0.65)' : '';
+      }
     };
 
     const onLeave = () => { cursor.style.opacity = '0'; };
@@ -36,7 +45,7 @@ export default function CustomCursor() {
       style={{
         zIndex: 9999,
         willChange: 'transform',
-        boxShadow: '0 0 12px rgba(255,255,255,0.08)',
+        transition: 'background-color 120ms ease, border-color 120ms ease',
       }}
     />
   );

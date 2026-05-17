@@ -11,8 +11,8 @@ export default function Home() {
       <div className="relative max-w-6xl mx-auto px-4 py-10 sm:px-8 sm:py-16">
 
         {/* Corner brackets */}
-        <div className="absolute inset-y-4 left-4 w-16 border-l border-t border-b border-neutral-700/70 hidden sm:block" />
-        <div className="absolute inset-y-4 right-4 w-16 border-r border-t border-b border-neutral-700/70 hidden sm:block" />
+        <div className="absolute inset-y-4 left-4 w-16 border-l border-t border-b border-neutral-700/70 hidden sm:block pointer-events-none" />
+        <div className="absolute inset-y-4 right-4 w-16 border-r border-t border-b border-neutral-700/70 hidden sm:block pointer-events-none" />
 
         <div className="flex flex-col gap-10 items-start md:flex-row md:gap-0">
 
