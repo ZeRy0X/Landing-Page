@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600">
+<defs>
+  <radialGradient id="halo" cx="300" cy="300" r="300" gradientUnits="userSpaceOnUse">
+    <stop offset=".22" stop-color="#cfe9ff" stop-opacity=".35"/>
+    <stop offset=".45" stop-color="#cfe9ff" stop-opacity=".08"/>
+    <stop offset="1" stop-color="#cfe9ff" stop-opacity="0"/>
+  </radialGradient>
+  <!-- doppler beaming: approaching side (left) brighter -->
+  <linearGradient id="disk" x1="20" x2="580" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".2" stop-color="#fff" stop-opacity=".95"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity=".7"/>
+    <stop offset=".75" stop-color="#e6f2ff" stop-opacity=".35"/>
+    <stop offset="1" stop-color="#e6f2ff" stop-opacity="0"/>
+  </linearGradient>
+  <!-- lensed image of the far side of the disk: bright arc above, thin arc below -->
+  <linearGradient id="lens" x1="0" y1="190" x2="0" y2="410" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+    <stop offset=".45" stop-color="#fff" stop-opacity=".25"/>
+    <stop offset=".6" stop-color="#fff" stop-opacity=".15"/>
+    <stop offset="1" stop-color="#fff" stop-opacity=".55"/>
+  </linearGradient>
+  <radialGradient id="shadow" cx="300" cy="300" r="92" gradientUnits="userSpaceOnUse">
+    <stop offset=".86" stop-color="#000"/>
+    <stop offset="1" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="b2" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="2"/></filter>
+  <filter id="b6" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="b16" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
+  <clipPath id="front"><rect x="0" y="300" width="600" height="300"/></clipPath>
+
+  <g id="disk-body" fill="none" stroke="url(#disk)">
+    <ellipse cx="300" cy="300" rx="235" ry="34" stroke-width="44" opacity=".2" filter="url(#b16)"/>
+    <ellipse cx="300" cy="300" rx="175" ry="25" stroke-width="44" opacity=".55" filter="url(#b6)"/>
+    <ellipse cx="300" cy="300" rx="130" ry="19" stroke-width="16" opacity=".9" filter="url(#b2)"/>
+  </g>
+
+  <!-- swirling streaks; dashoffset shifts by one full dash pattern so the loop is seamless -->
+  <g id="streaks" fill="none" stroke="#fff" stroke-linecap="round">
+    <ellipse cx="300" cy="300" rx="128" ry="18" stroke-width="1.4" stroke-opacity=".8" stroke-dasharray="60 30 14 46">
+      <animate attributeName="stroke-dashoffset" from="0" to="-150" dur="5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="300" rx="152" ry="22" stroke-width="1.2" stroke-opacity=".6" stroke-dasharray="90 40 20 50">
+      <animate attributeName="stroke-dashoffset" from="0" to="-200" dur="8s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="300" rx="180" ry="26" stroke-width="1" stroke-opacity=".45" stroke-dasharray="120 60 30 90">
+      <animate attributeName="stroke-dashoffset" from="0" to="-300" dur="13s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="300" rx="212" ry="31" stroke-width=".9" stroke-opacity=".3" stroke-dasharray="160 90 40 110">
+      <animate attributeName="stroke-dashoffset" from="0" to="-400" dur="20s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="300" rx="248" ry="36" stroke-width=".8" stroke-opacity=".18" stroke-dasharray="200 120 60 120">
+      <animate attributeName="stroke-dashoffset" from="0" to="-500" dur="30s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+</defs>
+
+<!-- outer glow -->
+<circle cx="300" cy="300" r="300" fill="url(#halo)"/>
+
+<!-- far side of the disk (hidden behind the shadow where they overlap) -->
+<g opacity=".7">
+  <use xlink:href="#disk-body" href="#disk-body"/>
+  <use xlink:href="#streaks" href="#streaks"/>
+</g>
+
+<!-- gravitationally lensed light wrapping over and under the hole -->
+<ellipse cx="300" cy="298" rx="112" ry="104" fill="none" stroke="url(#lens)" stroke-width="22" opacity=".55" filter="url(#b6)"/>
+<ellipse cx="300" cy="298" rx="100" ry="94" fill="none" stroke="url(#lens)" stroke-width="5" opacity=".9" filter="url(#b2)"/>
+
+<!-- event horizon shadow -->
+<circle cx="300" cy="300" r="92" fill="url(#shadow)"/>
+
+<!-- photon ring -->
+<circle cx="300" cy="300" r="82" fill="none" stroke="#fff" stroke-width="6" stroke-opacity=".35" filter="url(#b2)"/>
+<circle cx="300" cy="300" r="81" fill="none" stroke="#fff" stroke-width="1.2" stroke-opacity=".95"/>
+
+<!-- near side of the disk, crossing in front of the shadow -->
+<g clip-path="url(#front)">
+  <use xlink:href="#disk-body" href="#disk-body"/>
+  <use xlink:href="#streaks" href="#streaks"/>
+</g>
+</svg>
